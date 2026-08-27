@@ -1,0 +1,3 @@
+import Link from "next/link";
+
+export default function GoldPage(){return <main className="sub"><div className="container"><Link href="/" className="back">← بازگشت</Link><div className="metalHero goldHero"><span className="eyebrow">GANDOM GOLD</span><h1>گندم گلد</h1><p>مسیر تخصصی طلا، آب‌شده، شمش و سکه برای مشتریان خانگی و همکاران بازار.</p><div className="bigMetal">Au</div><Link href="/register" className="btn primary">ثبت‌نام و شروع</Link></div><div className="miniGrid"><article><b>طلای آب‌شده</b><p>ساختار آماده قیمت‌گذاری بر اساس وزن و عیار.</p></article><article><b>شمش طلا</b><p>وزن‌های متنوع برای سرمایه‌گذاری و خرید مطمئن.</p></article><article><b>سکه</b><p>تمام، نیم و ربع با موجودی و قیمت قابل اتصال.</p></article></div></div></main>}

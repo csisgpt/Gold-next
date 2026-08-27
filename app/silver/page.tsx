@@ -1,0 +1,3 @@
+import Link from "next/link";
+
+export default function SilverPage(){return <main className="sub"><div className="container"><Link href="/" className="back">← بازگشت</Link><div className="metalHero silverHero"><span className="eyebrow">GANDOM SILVER</span><h1>گندم سیلور</h1><p>مسیر مستقل نقره برای سرمایه‌گذاری، مصنوعات و نیازهای حرفه‌ای همکاران بازار.</p><div className="bigMetal">Ag</div><Link href="/register" className="btn silver">ثبت‌نام و شروع</Link></div><div className="miniGrid"><article><b>شمش نقره</b><p>نقره ۹۹۹ در وزن‌های متنوع.</p></article><article><b>ساچمه نقره</b><p>مناسب همکاران و سفارش‌های کارگاهی.</p></article><article><b>نقره زینتی</b><p>مسیر خرید ساده برای مشتریان خانگی.</p></article></div></div></main>}
