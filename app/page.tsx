@@ -1,33 +1,249 @@
 import Link from "next/link";
 
-const prices = [
-  ["طلای ۱۸ عیار", "۱۲,۴۸۰,۰۰۰", "تومان / گرم", "+۰.۸٪"],
-  ["آبشده ۷۵۰", "۵۴,۰۸۰,۰۰۰", "تومان / مثقال", "+۰.۵٪"],
-  ["نقره ۹۹۹", "۲۲۵,۰۰۰", "تومان / گرم", "۰٪"],
-  ["سکه تمام", "۱۴۷,۵۰۰,۰۰۰", "تومان", "-۰.۳٪"]
+const productCategories = [
+  "انگشتر",
+  "دستبند",
+  "گوشواره",
+  "آویز",
+  "گردنبند",
 ];
 
-const goldProducts = ["طلای آب‌شده", "شمش طلا", "سکه", "طلای زینتی"];
-const silverProducts = ["شمش نقره", "ساچمه نقره", "نقره زینتی", "سفارش عمده"];
+const trustItems = [
+  {
+    title: "فروش شفاف و مرحله‌ای",
+    text: "نمایش مسیر خرید، استعلام، ثبت درخواست و پیگیری به‌صورت ساده و قابل فهم برای مشتری خانگی.",
+  },
+  {
+    title: "تنوع در محصولات و مسیرها",
+    text: "گندم گلد و گندم سیلور در کنار مسیر مستقل همکاران، تجربه‌ای چندلایه و حرفه‌ای ایجاد می‌کنند.",
+  },
+  {
+    title: "آماده توسعه معامله حرفه‌ای",
+    text: "این ساختار برای توسعه قیمت لحظه‌ای، کیف پول، احراز هویت و گردش سفارش آماده طراحی شده است.",
+  },
+];
 
-function Logo() {
-  return <Link href="/" className="brand"><span className="mark">G</span><span><b>گندم</b><small>GANDOM GOLD · SILVER</small></span></Link>;
-}
+const steps = [
+  {
+    title: "ثبت‌نام",
+    text: "اطلاعات اولیه را ثبت می‌کنید و مسیر شما بر اساس مشتری خانگی یا همکار بازار مشخص می‌شود.",
+  },
+  {
+    title: "احراز اولیه",
+    text: "مرحله OTP و تکمیل اطلاعات هویتی برای ادامه فرایند خرید یا دریافت خدمات تخصصی انجام می‌شود.",
+  },
+  {
+    title: "شروع خرید یا همکاری",
+    text: "بعد از تأیید، دسترسی شما به محصولات، قیمت‌ها و خدمات متناسب با نوع حساب فعال می‌شود.",
+  },
+];
 
-export default function Home() {
-  return <main>
-    <header className="nav"><div className="container navin"><Logo/><nav><a href="#prices">قیمت‌ها</a><a href="#products">محصولات</a><a href="#about">درباره ما</a></nav><Link href="/register" className="btn outline">ورود / ثبت‌نام</Link></div></header>
+const priceRows = [
+  { title: "طلای ۱۸ عیار", value: "۱۲,۴۸۰,۰۰۰", suffix: "تومان / گرم", status: "+۰.۸٪" },
+  { title: "آب‌شده ۷۵۰", value: "۵۴,۰۸۰,۰۰۰", suffix: "تومان / مثقال", status: "+۰.۵٪" },
+  { title: "نقره ۹۹۹", value: "۲۲۵,۰۰۰", suffix: "تومان / گرم", status: "۰٪" },
+  { title: "سکه تمام", value: "۱۴۷,۵۰۰,۰۰۰", suffix: "تومان", status: "-۰.۳٪" },
+];
 
-    <section className="hero"><div className="container heroGrid"><div className="heroCopy"><span className="eyebrow">بازار مدرن طلا و نقره</span><h1>خرید و معامله با <em>گندم</em>؛ ساده، شفاف و حرفه‌ای</h1><p>یک تجربه یکپارچه برای مشتریان خانگی، سرمایه‌گذاران و همکاران حرفه‌ای بازار؛ با دو مسیر تخصصی گندم گلد و گندم سیلور.</p><div className="actions"><Link href="/gold" className="btn primary">ورود به گندم گلد</Link><Link href="/silver" className="btn silver">ورود به گندم سیلور</Link></div><div className="trust"><span>✓ قیمت شفاف</span><span>✓ مسیر احراز هویت</span><span>✓ آماده توسعه کیف پول و معامله</span></div></div><div className="heroVisual"><div className="ring r1"></div><div className="ring r2"></div><div className="coin gold"><small>GANDOM</small><strong>Au</strong><span>GOLD</span></div><div className="coin sil"><small>GANDOM</small><strong>Ag</strong><span>SILVER</span></div></div></div></section>
+export default function HomePage() {
+  return (
+    <main className="site-shell">
+      <header className="topbar">
+        <div className="container topbar-inner">
+          <Link href="/register" className="back-button">
+            ثبت‌نام
+          </Link>
 
-    <section id="prices" className="section"><div className="container"><div className="head"><span className="eyebrow">تابلوی قیمت</span><h2>مهم‌ترین قیمت‌ها در یک نگاه</h2><p>این اعداد در نسخه فعلی نمایشی‌اند و در نسخه عملیاتی به سرویس قیمت لحظه‌ای و Quote متصل می‌شوند.</p></div><div className="priceGrid">{prices.map(([t,v,u,c])=><article className="priceCard" key={t}><div><span>{t}</span><i>{c}</i></div><strong>{v}</strong><small>{u}</small></article>)}</div></div></section>
+          <div className="brand-block">
+            <div className="brand-copy">
+              <strong>گندم</strong>
+              <span>معامله امن و مدرن طلا و نقره</span>
+            </div>
+            <div className="brand-mark">گ</div>
+          </div>
+        </div>
+      </header>
 
-    <section id="products" className="section soft"><div className="container"><div className="head"><span className="eyebrow">محصولات</span><h2>دو دنیای تخصصی، زیر یک برند</h2></div><div className="duo"><article className="lineCard goldLine"><span className="lineBadge">GANDOM GOLD</span><h3>طلا و سکه</h3><p>برای خرید خانگی، سرمایه‌گذاری و معاملات حرفه‌ای همکاران بازار.</p><div className="chips">{goldProducts.map(x=><span key={x}>{x}</span>)}</div><Link href="/gold">مشاهده گندم گلد ←</Link></article><article className="lineCard silverLine"><span className="lineBadge">GANDOM SILVER</span><h3>نقره</h3><p>از شمش سرمایه‌گذاری تا محصولات زینتی و سفارش‌های عمده.</p><div className="chips">{silverProducts.map(x=><span key={x}>{x}</span>)}</div><Link href="/silver">مشاهده گندم سیلور ←</Link></article></div></div></section>
+      <section className="hero-section">
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <div className="section-badge">مخصوص مشتریان خانگی و همکاران بازار</div>
+            <h1>
+              خرید عمده و خرده <span>طلا و نقره</span> با تجربه‌ای شکیل، ساده و حرفه‌ای
+            </h1>
+            <p>
+              گندم بستری مدرن برای معرفی، فروش و توسعه خدمات طلا و نقره است؛ با دو مسیر تخصصی
+              <strong> گندم گلد </strong> و <strong>گندم سیلور</strong> برای کاربران عادی، سرمایه‌گذاران و فعالان بازار.
+            </p>
+            <div className="hero-actions">
+              <Link href="/register" className="cta-button primary-btn">
+                عضویت در گندم
+              </Link>
+              <Link href="/gold" className="cta-button light-btn">
+                مشاهده گندم گلد
+              </Link>
+            </div>
+          </div>
 
-    <section className="section"><div className="container"><div className="head"><span className="eyebrow">برای چه کسانی؟</span><h2>یک تجربه، با سطح دسترسی متناسب</h2></div><div className="audience"><article><b>مشتری خانگی</b><p>خرید ساده، توضیح روشن محصول، قیمت و سفارش مرحله‌ای.</p></article><article><b>سرمایه‌گذار</b><p>تمرکز روی شمش، آب‌شده، سکه و محصولات سرمایه‌ای.</p></article><article><b>همکار طلا</b><p>آماده توسعه Quote، اعتبار، کیف پول و تسویه تخصصی.</p></article><article><b>همکار نقره</b><p>استعلام، خرید عمده، ساچمه و سیاست‌های اختصاصی بازار.</p></article></div></div></section>
+          <div className="hero-visual">
+            <span className="orbit-tag orbit-top-right">مناسب خرید خانگی</span>
+            <span className="orbit-tag orbit-bottom-right">خدمات همکاران بازار</span>
+            <span className="orbit-tag orbit-bottom-left">گندم گلد و گندم سیلور</span>
 
-    <section id="about" className="section dark"><div className="container appbox"><div><span className="eyebrow light">نسخه وب‌اپ</span><h2>از سایت معرفی تا هسته واقعی معاملات</h2><p>معماری مسیر بعدی گندم برای OTP، KYC، Wallet، Quote، Trade، Audit و پیامک آماده شده تا این رابط به یک محصول عملیاتی تبدیل شود.</p></div><Link href="/register" className="btn primary">شروع عضویت</Link></div></section>
+            <div className="hero-orbit orbit-large" />
+            <div className="hero-orbit orbit-small" />
+            <div className="hero-centerpiece">
+              <div className="hero-hand">
+                <span className="ring-one" />
+                <span className="ring-two" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <footer><div className="container foot"><Logo/><p>© ۱۴۰۵ گندم — تمامی حقوق محفوظ است.</p></div></footer>
-  </main>;
+      <section className="section-block white-block">
+        <div className="container split-section story-section">
+          <div className="story-copy">
+            <div className="section-badge">معرفی گندم</div>
+            <h2>چرا گندم برای بازار امروز مناسب است؟</h2>
+            <p>
+              گندم با الهام از ساختار سایت‌های لوکس و تجربه‌محور طراحی شده تا هم برای مشتری خانگی قابل
+              اعتماد و ساده باشد و هم برای توسعه سرویس‌های حرفه‌ای طلا و نقره بستر مناسبی ایجاد کند.
+            </p>
+            <p>
+              ظاهر آرام، پالت رنگی لوکس، تایپوگرافی فارسی مناسب و ساختار منظم صفحه‌ها باعث می‌شود تجربه
+              کاربری بسیار نزدیک‌تر به نمونه‌های مرجع و بسیار حرفه‌ای‌تر از نسخه قبلی باشد.
+            </p>
+            <Link href="/gold" className="inline-link">
+              ورود به مسیر گندم گلد
+            </Link>
+          </div>
+
+          <div className="story-visual">
+            <div className="sculpture-card">
+              <div className="sculpture-shape sculpture-base" />
+              <div className="sculpture-shape sculpture-main" />
+              <div className="sculpture-shape sculpture-dots" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block white-block">
+        <div className="container">
+          <div className="section-heading center-text">
+            <div className="section-badge">دسته‌بندی محصولات</div>
+            <h2>تنوع مدل‌های موجود در سایت</h2>
+            <p>چیدمان کارت‌ها و دسته‌بندی‌ها به‌صورت مینیمال و لوکس بازطراحی شده تا حس پرمیوم منتقل کند.</p>
+          </div>
+
+          <div className="category-grid">
+            {productCategories.map((item, index) => (
+              <article key={item} className={`category-card ${index === 1 ? "featured" : ""}`}>
+                <div className={`jewel-shape jewel-${index + 1}`} />
+                <h3>{item}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block white-block">
+        <div className="container">
+          <div className="section-heading center-text narrow">
+            <div className="section-badge">مزیت‌ها</div>
+            <h2>معامله‌ای در سطح فعالان حرفه‌ای بازار</h2>
+            <p>از طراحی ویترین دیجیتال تا زیرساخت توسعه‌پذیر برای سفارش، استعلام و همکاری.</p>
+          </div>
+
+          <div className="trust-grid">
+            {trustItems.map((item, index) => (
+              <article key={item.title} className="trust-card">
+                <div className={`trust-icon trust-icon-${index + 1}`} />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span className="card-link">بیشتر بدانید</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block soft-block">
+        <div className="container">
+          <div className="section-heading center-text narrow">
+            <div className="section-badge">فرایند همکاری</div>
+            <h2>از ثبت‌نام تا اولین خرید شما</h2>
+            <p>مراحل صفحه به‌صورت واضح و مرحله‌به‌مرحله طراحی شده تا کاربر حس سردرگمی نداشته باشد.</p>
+          </div>
+
+          <div className="steps-grid">
+            {steps.map((item, index) => (
+              <article key={item.title} className="step-card">
+                <div className="step-number">{index + 1}</div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block white-block" id="prices">
+        <div className="container price-panel">
+          <div className="price-copy">
+            <div className="section-badge">تابلوی قیمت</div>
+            <h2>قیمت‌های مهم بازار در یک نگاه</h2>
+            <p>
+              این قسمت مثل مرجع می‌تواند نقش یک باکس پررنگ CTA را هم داشته باشد. فعلاً قیمت‌ها نمایشی‌اند تا در
+              مرحله بعد به دیتای واقعی متصل شوند.
+            </p>
+            <Link href="/register" className="cta-button primary-btn">
+              دریافت دسترسی و استعلام
+            </Link>
+          </div>
+
+          <div className="price-board">
+            {priceRows.map((row) => (
+              <div key={row.title} className="price-row">
+                <div>
+                  <strong>{row.title}</strong>
+                  <span>{row.suffix}</span>
+                </div>
+                <div className="price-value-block">
+                  <em>{row.status}</em>
+                  <b>{row.value}</b>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer-block">
+        <div className="container footer-grid">
+          <div className="footer-about">
+            <div className="footer-brand">
+              <div className="brand-mark small-mark">گ</div>
+              <div>
+                <strong>گندم</strong>
+                <span>تجربه‌ای نو برای خرید و معامله طلا و نقره</span>
+              </div>
+            </div>
+            <p>
+              این نسخه با تمرکز بر UI/UX حرفه‌ای، ساختار شفاف و توسعه‌پذیری محصول بازطراحی شده و آماده مرحله
+              بعدی توسعه عملیاتی است.
+            </p>
+          </div>
+
+          <div className="footer-contact">
+            <h3>ارتباط با ما</h3>
+            <p>قم، بازار طلا — مسیر توسعه آنلاین و حضوری</p>
+            <p>پشتیبانی عضویت، قیمت و همکاری</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
 }
