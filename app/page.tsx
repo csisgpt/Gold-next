@@ -1,1 +1,1 @@
-export { default } from "@/components/HomePageV5";
+export { default } from "@/components/HomePageV6";
