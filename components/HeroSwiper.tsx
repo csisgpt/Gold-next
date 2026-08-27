@@ -40,13 +40,7 @@ export default function HeroSwiper() {
         <SwiperSlide key={slide.title}>
           <article className="hero-slide">
             <div className="hero-slide-image"><Image src={slide.image} alt={slide.title} fill priority sizes="(max-width: 900px) 100vw, 56vw" /></div>
-            <div className="hero-slide-copy">
-              <span className="eyebrow-pill">{slide.eyebrow}</span>
-              <h1>{slide.title}</h1>
-              <p>{slide.description}</p>
-              <div className="hero-slide-actions"><Link href={slide.href} className="button button-primary">{slide.cta}</Link><Link href="/register" className="button button-ghost">عضویت / استعلام</Link></div>
-              <div className="hero-assurance"><span>شفافیت قیمت</span><span>کاتالوگ تخصصی</span><span>مناسب مشتری و همکار</span></div>
-            </div>
+            <div className="hero-slide-copy"><span className="eyebrow-pill">{slide.eyebrow}</span><h1>{slide.title}</h1><p>{slide.description}</p><div className="hero-slide-actions"><Link href={slide.href} className="button button-primary">{slide.cta}</Link><Link href="/register" className="button button-ghost">عضویت / استعلام</Link></div><div className="hero-assurance"><span>شفافیت قیمت</span><span>کاتالوگ تخصصی</span><span>مناسب مشتری و همکار</span></div></div>
           </article>
         </SwiperSlide>
       ))}
