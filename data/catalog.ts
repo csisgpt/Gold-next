@@ -1,11 +1,13 @@
+const BRAND_ASSET_BASE = "https://raw.githubusercontent.com/csisgpt/Gold-next/gandom-site/public/gandom";
+
 export const catalogAssets = {
-  crafted: "/gandom/showcase-jewelry.webp",
-  craftedAlt: "/gandom/trust-ring.webp",
+  crafted: `${BRAND_ASSET_BASE}/showcase-jewelry.webp`,
+  craftedAlt: `${BRAND_ASSET_BASE}/trust-ring.webp`,
   melted: "/gandom/catalog-melted.svg",
   goldBars: "/gandom/catalog-melted.svg",
   silverBars: "/gandom/catalog-silver-bars.svg",
   silverShot: "/gandom/catalog-silver-shot.svg",
-  workshop: "/gandom/gandom-sculpture.webp",
+  workshop: `${BRAND_ASSET_BASE}/gandom-sculpture.webp`,
 };
 
 export type CatalogCategory = {
