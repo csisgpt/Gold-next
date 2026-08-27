@@ -16,7 +16,13 @@ export type CatalogCategory = {
   image: string;
   tone: "gold" | "silver" | "crafted";
   chips: string[];
-  products: Array<{ name: string; meta: string; image: string; badge?: string }>;
+  products: Array<{
+    name: string;
+    meta: string;
+    priceLabel?: string;
+    image: string;
+    badge?: string;
+  }>;
 };
 
 export const catalogCategories: CatalogCategory[] = [
