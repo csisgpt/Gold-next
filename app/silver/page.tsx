@@ -1,74 +1,39 @@
+import Image from "next/image";
 import Link from "next/link";
-
-const silverCards = [
-  { title: "شمش نقره", text: "برای کاربران سرمایه‌ای و خریدهای مطمئن با نمایش ساختاریافته و حرفه‌ای." },
-  { title: "ساچمه نقره", text: "مناسب نیازهای تخصصی‌تر و سفارش‌های بازار و کارگاهی." },
-  { title: "نقره زینتی", text: "برای کاربران خانگی با دسته‌بندی ساده، جذاب و قابل درک." },
-];
+import CatalogSwiper from "@/components/CatalogSwiper";
+import FAQAccordion from "@/components/FAQAccordion";
+import { catalogAssets, catalogBySlug } from "@/data/catalog";
 
 export default function SilverPage() {
+  const bars = catalogBySlug["silver-bars"];
+  const shot = catalogBySlug["silver-shot"];
+
   return (
-    <main className="subpage-shell silver-page-shell">
-      <header className="topbar slim-topbar">
-        <div className="container topbar-inner">
-          <Link href="/" className="back-button">بازگشت</Link>
-          <div className="brand-block">
-            <div className="brand-copy"><strong>گندم سیلور</strong><span>مسیر تخصصی خدمات نقره</span></div>
-            <div className="brand-mark silver-mark">گ</div>
-          </div>
+    <main className="catalog-page catalog-tone-silver">
+      <header className="catalog-topbar">
+        <div className="container catalog-topbar-inner">
+          <Link href="/" className="logo-lockup"><span className="logo-seal">گ</span><span><b>گندم سیلور</b><small>GANDOM SILVER</small></span></Link>
+          <nav className="catalog-nav"><Link href="/">صفحه اصلی</Link><Link href="/catalog/silver-bars">شمش نقره</Link><Link href="/catalog/silver-shot">ساچمه</Link><Link href="/gold">گندم گلد</Link></nav>
+          <Link href="/register" className="header-action">عضویت</Link>
         </div>
       </header>
 
-      <section className="metal-hero-section silver-theme">
-        <div className="container metal-hero-grid reverse-grid">
-          <div className="stairs-visual silver-visual">
-            <div className="silver-rings"><span/><span/><span/></div>
-            <div className="coin-emblem silver-emblem">Ag</div>
+      <section className="category-hero-section">
+        <div className="container category-hero-grid">
+          <div className="category-hero-copy">
+            <span className="eyebrow-pill silver-eyebrow">GANDOM SILVER</span>
+            <h1>کاتالوگ تخصصی شمش و ساچمه نقره</h1>
+            <p>برای سرمایه‌گذار، کارگاه و همکار بازار؛ وزن‌های متنوع شمش، دانه‌بندی ساچمه، عیار، موجودی و استعلام در یک تجربه روشن و حرفه‌ای.</p>
+            <div className="category-chips"><span>شمش ۹۹۹</span><span>ساچمه ریز</span><span>ساچمه متوسط</span><span>ساچمه درشت</span><span>عمده</span></div>
+            <div className="hero-slide-actions"><Link href="/catalog/silver-bars" className="button button-primary">شمش نقره</Link><Link href="/catalog/silver-shot" className="button button-ghost">ساچمه نقره</Link></div>
           </div>
-          <div className="metal-copy">
-            <div className="section-badge silver-badge">GANDOM SILVER</div>
-            <h1>گندم سیلور</h1>
-            <p>صفحه مستقل نقره با هویت بصری متفاوت اما هماهنگ با برند گندم؛ مناسب مشتری خانگی، سفارش‌های عمده و خدمات توسعه‌پذیر آینده.</p>
-            <Link href="/register" className="cta-button silver-btn-outline">عضویت در گندم سیلور</Link>
-          </div>
+          <div className="category-hero-image"><Image src={catalogAssets.silverBars} alt="گندم سیلور" fill priority sizes="(max-width:900px) 100vw,55vw"/><span className="category-image-label">Gandom Silver Catalogue</span></div>
         </div>
       </section>
 
-      <section className="section-block white-block">
-        <div className="container">
-          <div className="section-heading center-text narrow">
-            <div className="section-badge silver-badge">محصولات و خدمات</div>
-            <h2>چیدمان حرفه‌ای برای معرفی محصولات نقره</h2>
-            <p>ساختار کارت‌ها، فاصله‌ها و رنگ‌ها در این صفحه با تم نقره‌ای و فضای مینیمال‌تر بازطراحی شده تا تفاوت Gold و Silver کاملاً حس شود.</p>
-          </div>
-          <div className="miniGrid silver-card-grid">
-            {silverCards.map((item)=><article key={item.title} className="silver-service-card"><div className="silver-token"/><h3>{item.title}</h3><p>{item.text}</p></article>)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-block soft-block">
-        <div className="container split-section feature-split">
-          <div>
-            <div className="section-badge silver-badge">مزیت تجربه</div>
-            <h2>ترکیب زیبایی، وضوح و قابلیت توسعه</h2>
-            <p>گندم سیلور به‌جای یک صفحه ساده، حالا یک Landing Page خوش‌ساخت با سلسله‌مراتب محتوایی واضح، CTAهای خوب و هویت مستقل دارد.</p>
-            <ul className="feature-list silver-list">
-              <li>طراحی روشن و لوکس با هارمونی نقره‌ای</li>
-              <li>آماده برای مسیر ثبت‌نام و استعلام محصول</li>
-              <li>قابل توسعه برای موجودی، سفارش و خدمات همکاران</li>
-            </ul>
-          </div>
-          <div className="phone-visual silver-phone-wrap"><div className="phone-frame silver-phone-frame"><div className="phone-screen silver-screen"><div className="screen-logo silver-screen-logo">گ</div></div></div></div>
-        </div>
-      </section>
-
-      <section className="download-cta silver-download">
-        <div className="container download-grid">
-          <div><div className="section-badge silver-badge">شروع عضویت</div><h2>برای ورود به مسیر نقره آماده‌اید؟</h2><p>ثبت‌نام کنید تا در نسخه بعدی به خدمات کامل‌تر گندم سیلور دسترسی پیدا کنید.</p></div>
-          <Link href="/register" className="cta-button light-btn">ثبت‌نام در گندم</Link>
-        </div>
-      </section>
+      <section className="site-section"><div className="container"><div className="section-intro"><div><span className="eyebrow-pill silver-eyebrow">شمش نقره</span><h2>وزن‌های سرمایه‌ای و حرفه‌ای</h2></div><Link href="/catalog/silver-bars">مشاهده همه</Link></div><CatalogSwiper items={bars.products} href="/catalog/silver-bars"/></div></section>
+      <section className="site-section site-section-soft"><div className="container"><div className="section-intro"><div><span className="eyebrow-pill silver-eyebrow">ساچمه</span><h2>دانه‌بندی و بسته‌بندی‌های مختلف</h2></div><Link href="/catalog/silver-shot">مشاهده همه</Link></div><CatalogSwiper items={shot.products} href="/catalog/silver-shot"/></div></section>
+      <section className="site-section"><div className="container faq-two-column"><div className="faq-aside-card"><span className="eyebrow-pill silver-eyebrow">راهنما</span><h2>نقره برای سرمایه‌گذاری و کارگاه</h2><p>نوع محصول، عیار، وزن و کاربرد باید کاملاً واضح باشد؛ این ساختار دقیقاً برای همین طراحی شده.</p><Link href="/register" className="button button-primary">استعلام و عضویت</Link></div><FAQAccordion/></div></section>
     </main>
   );
 }
