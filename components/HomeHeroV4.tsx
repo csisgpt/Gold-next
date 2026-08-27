@@ -6,9 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import styles from "./HomePageV4.module.css";
 
+const asset = (name: string) => `https://raw.githubusercontent.com/csisgpt/Gold-next/gandom-site/public/gandom/${name}`;
+
 const slides = [
   {
-    image: "/gandom/gandom-sculpture.webp",
+    image: asset("gandom-sculpture.webp"),
     eyebrow: "گندم؛ بازار مدرن طلا و نقره",
     title: <>بازار امن و هوشمند<br /><span>طلا و نقره</span></>,
     text: "خرید طلا و نقره، آبشده، شمش، ساچمه و زیورآلات با قیمت شفاف، اصالت تضمینی و ارسال امن به سراسر کشور.",
@@ -16,7 +18,7 @@ const slides = [
     primaryHref: "#catalogs",
   },
   {
-    image: "/gandom/showcase-jewelry.webp",
+    image: asset("showcase-jewelry.webp"),
     eyebrow: "GANDOM CRAFTED",
     title: <>ویترین منتخب<br /><span>کارهای ساخته</span></>,
     text: "انتخابی از انگشتر، گوشواره، گردنبند و دستبندهای ویترینی با تجربه‌ای کاتالوگی و آماده اتصال به موجودی واقعی.",
@@ -24,7 +26,7 @@ const slides = [
     primaryHref: "/catalog/crafted-gold",
   },
   {
-    image: "/gandom/trust-ring.webp",
+    image: asset("trust-ring.webp"),
     eyebrow: "اعتماد، اصالت و شفافیت",
     title: <>خرید با اطمینان<br /><span>از گندم</span></>,
     text: "مسیر خرید و استعلام با اطلاعات روشن، پشتیبانی واقعی و ساختاری آماده برای قیمت لحظه‌ای، احراز هویت و معامله آنلاین.",
