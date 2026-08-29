@@ -10,11 +10,24 @@ type Props = {
 };
 
 function toLocalAsset(src: string) {
-  const marker = "/public/gandom/";
-  if (src.includes("raw.githubusercontent.com") && src.includes(marker)) {
-    const filename = src.split(marker).pop();
-    return filename ? `/gandom/${filename}` : "/gandom/fallback.svg";
+  const filename = src.split("/").pop() || "";
+
+  if (["showcase-jewelry.webp", "trust-ring.webp"].includes(filename)) {
+    return "/gandom/hero-gold.svg";
   }
+
+  if (["gandom-sculpture.webp", "iran-shipping.webp"].includes(filename)) {
+    return "/gandom/hero-investment.svg";
+  }
+
+  if (filename === "gandom-qr.png") {
+    return "/gandom/fallback.svg";
+  }
+
+  if (src.includes("raw.githubusercontent.com") && src.includes("/public/gandom/")) {
+    return `/gandom/${filename}`;
+  }
+
   return src;
 }
 
