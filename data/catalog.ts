@@ -1,10 +1,10 @@
 export const catalogAssets = {
   crafted: "/gandom/hero-gold.svg",
   craftedAlt: "/gandom/hero-gold.svg",
-  melted: "/gandom/technical-melted.svg",
-  goldBars: "/gandom/technical-melted.svg",
-  silverBars: "/gandom/technical-silver-bars.svg",
-  silverShot: "/gandom/technical-silver-shot.svg",
+  melted: "/gandom/catalog-melted.svg",
+  goldBars: "/gandom/catalog-melted.svg",
+  silverBars: "/gandom/catalog-silver-bars.svg",
+  silverShot: "/gandom/catalog-silver-shot.svg",
   workshop: "/gandom/hero-investment.svg",
 };
 
